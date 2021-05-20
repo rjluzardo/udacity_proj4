@@ -4,7 +4,7 @@
 
 # Step 1:
 docker build -t demolocal .
-docker build --tag=app
+docker build --tag=app .
 
 # Step 2: 
 docker image ls
