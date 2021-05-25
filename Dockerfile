@@ -12,8 +12,7 @@ RUN touch docker_out.txt
 RUN echo "checking"
 
 ## Step 3:
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 # hadolint ignore=DL3013
 
 ## Step 4:
