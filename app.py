@@ -14,7 +14,7 @@ logging.basicConfig(filename='docker_out.txt',level=logging.INFO)
 def scale(payload):
     """Scales Payload"""
     
-    LOG.info(f"Scaling Payload: \n{payload}")
+    LOG.info("Scaling Payload: \n{payload}")
     scaler = StandardScaler().fit(payload.astype(float))
     scaled_adhoc_predict = scaler.transform(payload.astype(float))
     return scaled_adhoc_predict
@@ -57,9 +57,9 @@ def predict():
     # Logging the input payload
     
     json_payload = request.json
-    LOG.info(f"JSON payload: \n{json_payload}")
+    LOG.info("JSON payload: \n{json_payload}")
     inference_payload = pd.DataFrame(json_payload)
-    LOG.info(f"Inference payload DataFrame: \n{inference_payload}")
+    LOG.info("Inference payload DataFrame: \n{inference_payload}")
     
     # scale the input
     scaled_payload = scale(inference_payload)
