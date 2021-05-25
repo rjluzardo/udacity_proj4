@@ -9,6 +9,7 @@ COPY app.py /app/
 COPY requirements.txt /app
 COPY model_data /app/model_data
 RUN touch docker_out.txt
+RUN echo "checking"
 
 ## Step 3:
 RUN pip install --no-cache-dir --upgrade pip && \
