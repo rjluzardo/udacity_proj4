@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
+logging.basicConfig(filename='docker_out.txt',level=logging.INFO)
 
 def scale(payload):
     """Scales Payload"""
@@ -54,7 +55,7 @@ def predict():
         """
     
     # Logging the input payload
-    logging.basicConfig(filename='docker_out.txt',level=logging.INFO)
+    
     json_payload = request.json
     LOG.info(f"JSON payload: \n{json_payload}")
     inference_payload = pd.DataFrame(json_payload)
@@ -65,9 +66,8 @@ def predict():
     # get an output prediction from the pretrained model, clf
     prediction = list(clf.predict(scaled_payload))
     # TO DO:  Log the output prediction value
-    return jsonify({'prediction': prediction}
-    
-    )
+    return jsonify({'prediction': prediction})
+    LOG.info(f"Output prediction: {prediction}")
 
 if __name__ == "__main__":
     # load pretrained model as clf
