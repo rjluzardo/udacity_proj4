@@ -10,9 +10,17 @@ dockerpath=rluzardo/app
 # Run the Docker Hub container with kubernetes
 kubectl run kubernetes-udacity --image=$dockerpath --port=80
 
+#kubectl create deployment kubernetes-udacity --image=$dockerpath
+
+#kubectl run kubernetes-udacity\
+#    --generator=run-pod/v1\
+#    --image=$dockerpath\
+#    --port=80 --labels app=kubernetes-udacity
+
+
 # Step 3:
 # List kubernetes pods
 kubectl get pods
 
 # Step 4:
-kubectl port-forward kubernetes-udacity 8000:8000
+kubectl port-forward kubernetes-udacity 8000:80
