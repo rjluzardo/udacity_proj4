@@ -4,8 +4,8 @@
 
 # Step 1:
 docker build -t demolocal .
-#docker build --tag=rluzardo/app .
-#docker push rluzardo/app
+docker build --tag=rluzardo/app .
+docker push rluzardo/app
 
 # Step 2: 
 docker image ls
